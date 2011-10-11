@@ -1,0 +1,12 @@
+/*
+Theme Name: RISD English
+Theme URI: http://risd-english.com/
+Description: Child theme of TwentyTen (and Eleven) made for the RISD English Department, and modified a great deal by Daniel Wiener. 
+Version: 1.0
+Author: Daniel Wiener
+Author URI: http://danielwiener.com
+Template: twentyten
+Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-background, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style
+*/
+
+@import url('../twentyten/style.css');
