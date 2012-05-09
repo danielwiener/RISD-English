@@ -1,0 +1,38 @@
+/*
+Theme Name:RISD English
+Layout: Sidebar-Content
+*/
+#page {
+	width: 940px;
+	margin: 0 auto;
+	border: 1px solid #999;
+	background: #eee; /*temp*/
+}
+
+.site {
+	
+}  
+
+
+.site-content {
+	float: right;
+	margin: 0 0 0 -25%;
+	width: 100%;
+}
+#content {
+	margin: 0 0 0 25%;
+	border: 1px solid #999;
+}
+#secondary { /* Sidebar 1 */
+	float: left;
+/*	overflow: hidden;*/
+	width: 25%;
+	background: #ddd; /*temp*/ 
+}
+#tertiary { /* Sidebar 2 */
+	clear: left;
+}
+.site-footer {
+	clear: both;
+	width: 100%;
+}
