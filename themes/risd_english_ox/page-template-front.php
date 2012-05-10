@@ -30,7 +30,7 @@ get_header(); // Loads the header.php template. ?>
 	
 			<div class="hfeed">
 				
-				<h4 class="section-title">Recent Articles</h4>
+				<h4 class="section-title">News &amp; Events</h4>
 				
 				<?php $args = array( 'post__not_in' => get_option( 'sticky_posts' ), 'posts_per_page' => 3, 'meta_key' => '_oxygen_post_location', 'meta_value' => 'primary' ); ?>
 				
@@ -74,7 +74,7 @@ get_header(); // Loads the header.php template. ?>
 									
 								</div>
 									
-								<a class="read-more" href="<?php the_permalink(); ?>">Read Article &rarr;</a>
+								<a class="read-more" href="<?php the_permalink(); ?>">Read More &rarr;</a>
 	
 								<?php do_atomic( 'close_entry' ); // oxygen_close_entry ?>
 	
