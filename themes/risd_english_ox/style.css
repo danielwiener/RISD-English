@@ -814,12 +814,14 @@ input[type="submit"]:hover { cursor: pointer }
 }
 .featured-post .byline {
 	position: absolute;
-	bottom: 82px;
+	top: 290px;
 	right: 0;
-	color: #999;
-	background: #fff;
+	left: 140px;
+	color: #555 !important;
+	background: rgba(255, 255, 255, 0.85);
 	padding: .4em 30px .4em 1.3em;
-	font-size: 0.9166666666666667em;
+	font-size: 0.9166666666666667em; 
+	height: 40px;
 }
 .featured-post a:hover { border-bottom: none; }
 .featured-thumbnail { max-width: 100%; }

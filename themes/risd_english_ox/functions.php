@@ -43,7 +43,7 @@ function dw_custom_init()
     'show_in_nav_menus' => true,
 	'has_archive' => true,
     'rewrite' => true,
-    'supports' => array('title','editor','thumbnail','excerpt','comments','revisions')
+    'supports' => array('title','editor','thumbnail','excerpt','comments','revisions', 'custom-fields')
   ); 
   register_post_type('exhibitions',$args);
 
@@ -79,9 +79,48 @@ function dw_custom_init()
 	   'rewrite' => true,
 	   'supports' => array('title','editor','revisions')
 	 ); 
-	 register_post_type('faculty',$args);
+	 register_post_type('faculty',$args);  
+	
+    /* BEGIN Electives Post Type*/ 
+	$labels = array(
+	   'name' => _x('Electives', 'post type general name'),
+	   'singular_name' => _x('Elective', 'post type singular name'),
+	   'add_new' => _x('Add New', 'electives'),
+	   'add_new_item' => __('Add New Elective'),
+	   'edit_item' => __('Edit Elective'),
+	   'edit' => _x('Edit', 'electives'),
+	   'new_item' => __('New Elective'),
+	   'view_item' => __('View Elective'),
+	   'search_items' => __('Search Electives'),
+	   'not_found' =>  __('No Electives found'),
+	   'not_found_in_trash' => __('No Electives found in Trash'), 
+	   'view' =>  __('View Elective'),
+	   'parent_item_colon' => ''
+	 );
+	 $args = array(
+	   'labels' => $labels,
+	   'public' => true,
+	   'publicly_queryable' => true,
+	   'show_ui' => true, 
+	   'query_var' => true, 
+	   'capability_type' => 'post',
+	  /* 'taxonomies' => array( 'post_tag', 'category'), */
+	   'hierarchical' => false,
+	   'can_export' => true,
+	   'menu_position' => 5,
+	   'show_in_nav_menus' => true,
+		'has_archive' => true,
+	   'rewrite' => true,
+	   'supports' => array('title','editor','revisions', 'excerpt')
+	 ); 
+	 register_post_type('electives',$args);
 
 
 }
 
-/* End Aside Post Type*/
+/* End Post Types*/ 
+
+/**
+ * Metaboxes
+ *
+ */
