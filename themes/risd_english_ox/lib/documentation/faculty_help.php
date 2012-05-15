@@ -1,0 +1,2 @@
+<p>This is where I would provide help to the user on how everything in my admin panel works. Formatted HTML works fine in here too.</p>
+<p>Another paragraph <a href="/url" title="sometitle">Linked Text</a></p>
