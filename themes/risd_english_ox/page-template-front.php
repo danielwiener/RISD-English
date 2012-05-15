@@ -126,6 +126,11 @@ get_header(); // Loads the header.php template. ?>
 	
 		</div><!-- #content -->
 	
-		<?php do_atomic( 'after_content' ); // oxygen_after_content ?>
+		<?php do_atomic( 'after_content' ); // oxygen_after_content ?>   
+<?php 
+// include('r-debug.php');
+// $debug = New R_Debug;
+// $debug->list_hooks('wp');
+// $debug->list_performance(true); ?>
 
 <?php get_footer(); // Loads the footer.php template. ?>

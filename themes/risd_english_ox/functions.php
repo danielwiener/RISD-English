@@ -10,6 +10,7 @@
 
 add_theme_support( 'theme-layouts', array( '2c-l', '2c-r' ) );   //deal with this later, if necessary OR DELETE! 
 
+
 add_action('init', 'dw_custom_init');
 function dw_custom_init() 
 {  
@@ -114,7 +115,9 @@ function dw_custom_init()
 	   'supports' => array('title','editor','revisions', 'excerpt')
 	 ); 
 	 register_post_type('electives',$args);
-
+// 	include('r-debug.php');
+// 	$dw_debug = New R_Debug;	
+// $dw_debug->list_performance(true);
 
 }
 
