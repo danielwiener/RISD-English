@@ -546,11 +546,11 @@ input[type="submit"]:hover { cursor: pointer }
 	clear: both;
 	width: 100%;
 	float: left;
-	padding: 40px 0 0 0;
+	padding: 0 0 0 0;
 }
 #branding {
 	float: left;
-	width: 45%;
+	width: 100%;
 	overflow: hidden;
 }
 #site-title {

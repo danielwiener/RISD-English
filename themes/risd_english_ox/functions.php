@@ -128,7 +128,7 @@ function my_plugin_help($contextual_help, $screen_id, $screen) {
 	if ($screen_id == "faculty" || $screen_id == "edit-faculty") {
 
 		$contextual_help = file_get_contents('lib/documentation/faculty_help.php', true);
-	} 
+	 
 	 // print_r($screen_id);
    
 	
@@ -147,7 +147,7 @@ function my_plugin_help($contextual_help, $screen_id, $screen) {
 	    $screen->set_help_sidebar(
 	                              __('This is the content you will be adding to the sidebar for the current page. You must make sure other tabs have already been added using the "add_help_tab" function above. This sidebar will not show up unless there are tabs for the current screen')
 	                             );
-
+}
 }
 
 add_filter('contextual_help', 'my_plugin_help', 10, 3);

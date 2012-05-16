@@ -90,11 +90,16 @@ get_header(); // Loads the header.php template. ?>
 	
 				<?php endif; ?>
 				
-				<h4 class="section-title">More Articles</h4>
-				
+				<h4 class="section-title">Exhibitions</h4>
+
 				<div class="hfeed-more">				
 					
-					<?php $args = array( 'post__not_in' => get_option( 'sticky_posts' ), 'posts_per_page' => 12, 'meta_key' => '_oxygen_post_location', 'meta_value' => 'secondary' ); ?>
+					<?php $args = array( 
+						'post__not_in' 		=> get_option( 'sticky_posts' ),
+						'posts_per_page' 	=> 12,
+						'meta_key' 			=> '_oxygen_post_location',
+						'meta_value' 		=> 'secondary',
+						'post_type' 		=> 'any'); ?>
 					
 					<?php $loop = new WP_Query( $args ); ?>
 					
@@ -103,6 +108,11 @@ get_header(); // Loads the header.php template. ?>
 						<?php while ( $loop->have_posts() ) : $loop->the_post(); ?>
 		
 							<div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
+								<?php if ( current_theme_supports( 'get-the-image' ) ) {
+
+								get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'archive-thumbnail', 'image_class' => 'featured', 'width' => 470, 'height' => 140, 'default_image' => get_template_directory_uri() . '/images/archive-thumbnail-placeholder.gif' ) );							
+
+							}   ?>
 										
 								<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title]' ); ?>
 									
