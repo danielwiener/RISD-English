@@ -515,7 +515,14 @@ input[type="submit"]:hover { cursor: pointer }
 	float: right;
 	width: 79.78723404255319%;	/* 750 / 940 = 0.79787234042553 */
 }
-.page-template-fullwidth .content-wrap { width: 100%; }
+.page-template-fullwidth .content-wrap { width: 100%; } 
+.post-template-2c .content-wrap {
+	width: 79.78723404255319%; 
+} 
+.post-template-2c #content { 
+	width: 100%; 
+}
+	
 #content {
 	float: left;
 	width: 62.66666666666667%;	/* 470 / 750 = 0.6266666666666667 */
@@ -561,7 +568,7 @@ input[type="submit"]:hover { cursor: pointer }
 	text-transform: uppercase;
 	word-wrap: break-word;
 	background: #fff url(images/literary_arts_studies_logo.jpg) no-repeat top left;
-	height: 100px;
+	height: 120px;
 }
 #site-title a {
 	color: #222;
