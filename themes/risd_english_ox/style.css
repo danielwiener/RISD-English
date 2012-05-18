@@ -555,15 +555,27 @@ input[type="submit"]:hover { cursor: pointer }
 }
 #site-title {
 	font-family: 'Abel', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 3em;	/* 36 / 12 = 3 */
+	font-size: 2.3em;	/* 36 / 12 = 3 */
 	line-height: 1em;
 	margin: 0 0 3px 0;
 	text-transform: uppercase;
 	word-wrap: break-word;
+	background: #fff url(images/literary_arts_studies_logo.jpg) no-repeat top left;
+	height: 100px;
 }
 #site-title a {
 	color: #222;
-	border-bottom: none;
+	border-bottom: none; 
+    display: block;
+	padding: 8px 0 0 10px;
+} 
+
+#site-title a:link, #site-title a:visited {
+	color: #222;
+} 
+
+#site-title a:hover, #site-title a:active {
+	color: red; /*change this*/
 }
 #header img { max-width: 100%; }
 #site-description {

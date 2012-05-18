@@ -62,9 +62,12 @@
 								</a>
 							</h1>
 						
-						<?php } else { ?>
+						<?php } else { ?>   
+			                  				 <h1 id="site-title">
+									<a href="<?php echo home_url(); ?>/" title="<?php echo bloginfo( 'name' ); ?>" rel="Home">
+										RISD<br>Literary Arts<br>and Studies</a></h1>
 						
-							<?php hybrid_site_title(); ?>
+							<?php // hybrid_site_title(); ?>
 						
 						<?php } ?>
 						
