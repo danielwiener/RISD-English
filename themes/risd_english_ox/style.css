@@ -516,10 +516,10 @@ input[type="submit"]:hover { cursor: pointer }
 	width: 79.78723404255319%;	/* 750 / 940 = 0.79787234042553 */
 }
 .page-template-fullwidth .content-wrap { width: 100%; } 
-.post-template-2c .content-wrap {
+.post-template-2c .content-wrap, .archive-faculty .content-wrap{
 	width: 79.78723404255319%; 
 } 
-.post-template-2c #content { 
+.post-template-2c #content, .archive-faculty #content { 
 	width: 100%; 
 }
 	
@@ -956,12 +956,19 @@ input[type="submit"]:hover { cursor: pointer }
 .entry-header {
 	float: left;
 	width: 30%;
-}
+} 
+
 .entry-summary {
 	float: right;
 	width: 65%;
 	padding-left: 2.34375%;
+}  
+.faculty .entry-summary {
+  /*  float: right;*/  
+	width: 80%;
+	padding-left: 2.34375%;
 }
+
 .hentry .archive-thumbnail { margin: 0 0 11px 0; }
 .hentry img.featured { margin-bottom: 15px; }
 .byline-cat {

@@ -8,7 +8,7 @@
  * @license http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-add_theme_support( 'theme-layouts', array( '2c-l', '2c-r' ) );   //deal with this later, if necessary OR DELETE! 
+// add_theme_support( 'theme-layouts', array( '2c-l', '2c-r' ) );   //deal with this later, if necessary OR DELETE! 
 
 
 add_action('init', 'dw_custom_init');
@@ -78,7 +78,7 @@ function dw_custom_init()
 	   'show_in_nav_menus' => true,
 		'has_archive' => true,
 	   'rewrite' => true,
-	   'supports' => array('title','editor','revisions')
+	   'supports' => array('title','editor','revisions', 'thumbnail', 'excerpt')
 	 ); 
 	 register_post_type('faculty',$args);  
 	
