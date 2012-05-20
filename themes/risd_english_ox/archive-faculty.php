@@ -40,9 +40,13 @@ get_header(); // Loads the header.php template. ?>
 	
 							
 							<div class="entry-header">
-										
-								<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title]' ); ?>
-</div>
+								<?php if ( get_post_meta($post->ID, "_dw_first_name", true) ): ?>
+									<?php $dw_first_name = get_post_meta($post->ID, "_dw_first_name", true); ?>
+									<h2 class="entry-title"><a href="<?php the_permalink() ?>" title="<?php echo $dw_first_name . '  ' . the_title(); ?>" rel="bookmark"><?php echo $dw_first_name; ?> <?php the_title(); ?></a></h2>
+								<?php else: ?>
+									Please return to the WP admin and add the Faculty first name to the first name field.
+								<?php endif ?> 
+							</div>
 								
 							<div class="entry-summary">
 								     <?php // the_post_thumbnail('medium', array('class' => 'alignleft')); ?>
