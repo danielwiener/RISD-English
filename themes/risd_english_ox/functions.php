@@ -187,7 +187,7 @@ function dw_metaboxes( array $dw_meta_boxes ) {
 			array(
 				'name' => 'First Name',
 				'desc' => 'Please, add your first name. To order Faculty alphabetically by last name, enter your last name as the Title, above. Do not add your first name in the title.',
-				'id'   => $prefix . 'First Name',
+				'id'   => $prefix . 'first_name',
 				'type' => 'text',
 			),
 			array(
