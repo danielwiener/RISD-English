@@ -155,6 +155,64 @@ add_filter('contextual_help', 'my_plugin_help', 10, 3);
 /* End Post Types*/ 
 
 /**
- * Metaboxes
+ * Include and setup custom metaboxes and fields.
  *
+ * @category RISD English 1.0
+ * @package  Metaboxes
+ * @license  http://www.opensource.org/licenses/gpl-license.php GPL v2.0 (or later)
+ * @link     https://github.com/jaredatch/Custom-Metaboxes-and-Fields-for-WordPress
  */
+
+add_filter( 'cmb_meta_boxes', 'dw_metaboxes' );
+/**
+ * Define the metabox and field configurations.
+ *
+ * @param  array $meta_boxes
+ * @return array
+ */
+function dw_metaboxes( array $dw_meta_boxes ) {
+
+	// Start with an underscore to hide fields from custom fields list
+	$prefix = '_dw_';
+
+	$dw_meta_boxes[] = array(
+		'id'         => 'faculty_info',
+		'title'      => 'Faculty Info',
+		'pages'      => array( 'faculty', ), // Post type
+		'context'    => 'normal',
+		'priority'   => 'high',
+	   	// 'show_on' => array( 'key' => 'page-template', 'value' => array( 'page-feed.php', 'page-upcoming-exhibitions.php' ) ), //only shows on artwork pages, maybe figure out how to do parent page - Sculpture
+		'show_names' => true, // Show field names on the left
+		'fields'     => array(
+			array(
+				'name' => 'First Name',
+				'desc' => 'Please, add your first name. To order Faculty alphabetically by last name, enter your last name as the Title, above. Do not add your first name in the title.',
+				'id'   => $prefix . 'First Name',
+				'type' => 'text',
+			),
+			array(
+				'name' => 'More Information',
+				'desc' => 'Keeping this here, temporarily because I will need it',
+				'id'   => $prefix . 'faculty_more_info',
+				'type' => 'text',
+			),  		
+		),
+	);
+
+
+	// Add other metaboxes as needed
+
+	return $dw_meta_boxes;
+}    
+
+
+add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
+/**
+ * Initialize the metabox class.
+ */
+function cmb_initialize_cmb_meta_boxes() {
+
+	if ( ! class_exists( 'cmb_Meta_Box' ) )
+		require_once 'lib/metabox/init.php';
+
+}
