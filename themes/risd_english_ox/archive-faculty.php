@@ -27,7 +27,16 @@ get_header(); // Loads the header.php template. ?>
 			<?php do_atomic( 'open_content' ); // oxygen_open_content ?>
 	
 			<div class="hfeed">
-	
+	             <?php
+					global $wp_query;
+					$args = array_merge( $wp_query->query,
+						array(
+							'orderby'         	=> 'title',
+							'order'           	=> 'ASC',
+						   
+						)	
+					); 
+				 	query_posts( $args ); ?>
 				<?php if ( have_posts() ) : ?>
 	
 					<?php while ( have_posts() ) : the_post(); ?>
@@ -44,7 +53,12 @@ get_header(); // Loads the header.php template. ?>
 									<?php $dw_first_name = get_post_meta($post->ID, "_dw_first_name", true); ?>
 									<h2 class="entry-title"><a href="<?php the_permalink() ?>" title="<?php echo $dw_first_name . '  ' . the_title(); ?>" rel="bookmark"><?php echo $dw_first_name; ?> <?php the_title(); ?></a></h2>
 								<?php else: ?>
-									Please return to the WP admin and add the Faculty first name to the first name field.
+									<div class="alert alert-block">
+								    <!-- <a class="close" data-dismiss="alert" href="#">×</a> --><!-- Need to add bootstrap js and more classes to get this to work                                                                                  -->
+								    <h4 class="alert-heading">Warning!</h4>
+								     Please return to the WP admin and add the Faculty first name to the first name field. Only last name should be in the Title Field.
+								    </div>
+								   
 								<?php endif ?> 
 							</div>
 								
