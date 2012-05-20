@@ -118,7 +118,8 @@ function dw_custom_init()
 // 	include('r-debug.php');
 // 	$dw_debug = New R_Debug;	
 // $dw_debug->list_performance(true);
-
+      add_image_size('portrait', 175, '', false);
+	  add_image_size('portrait-thumbnail', 75, 100, true);
 }
 
 
