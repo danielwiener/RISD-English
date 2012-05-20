@@ -13,5 +13,13 @@ Using the starter theme -  _s, or underscores - I am creating a website for the 
 - Started adding help tabs
 
 
+***
+
+##May 18 - 20, 2012##
+
+- Faculty images, faculty layout, faculty first name and custom field
+
+
+
 ***  
 
