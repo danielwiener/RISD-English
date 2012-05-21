@@ -56,7 +56,7 @@ get_header(); // Loads the header.php template. ?>
 									<div class="alert alert-block">
 								    <!-- <a class="close" data-dismiss="alert" href="#">×</a> --><!-- Need to add bootstrap js and more classes to get this to work                                                                                  -->
 								    <h4 class="alert-heading">Warning!</h4>
-								     Please return to the WP admin and add the Faculty first name to the first name field. Only last name should be in the Title Field.
+								     Add  first name to the first name field.
 								    </div>
 								   
 								<?php endif ?> 
