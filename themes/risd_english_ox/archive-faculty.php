@@ -33,6 +33,7 @@ get_header(); // Loads the header.php template. ?>
 						array(
 							'orderby'         	=> 'title',
 							'order'           	=> 'ASC',
+							'posts_per_page'	=> -1
 						   
 						)	
 					); 
@@ -63,10 +64,9 @@ get_header(); // Loads the header.php template. ?>
 							</div>
 								
 							<div class="entry-summary">
-								     <?php // the_post_thumbnail('medium', array('class' => 'alignleft')); ?>
 									<?php if ( current_theme_supports( 'get-the-image' ) ) {
 
-										get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'medium', 'image_class' => 'alignleft', 'attachment' => false, 'default_image' => get_stylesheet_directory_uri() . '/images/default_portrait_placeholder.gif' ) );							
+										get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'portrait-thumbnail', 'image_class' => 'alignleft', 'width' => 75, 'height' => 90, 'attachment' => false, 'default_image' => get_stylesheet_directory_uri() . '/images/default_portrait_placeholder.gif' ) );							
 
 									} ?>  
 								<?php the_excerpt(); ?>
@@ -75,7 +75,7 @@ get_header(); // Loads the header.php template. ?>
 								
 							</div>
 								
-							<a class="read-more" href="<?php the_permalink(); ?>">Read About <?php echo get_the_title() ?> &rarr;</a>
+							<a class="read-more" href="<?php the_permalink(); ?>">Read About <?php echo $dw_first_name . ' ' . get_the_title() ?> &rarr;</a>
 	
 							<?php do_atomic( 'close_entry' ); // oxygen_close_entry ?>
 	

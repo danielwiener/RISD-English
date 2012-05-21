@@ -1420,8 +1420,8 @@ input[type="submit"]:hover { cursor: pointer }
 .faculty .entry-title {
 
 }
-div.faculty {
-	width: 28% !important;
+.archive-faculty .hentry {
+	width: 29% !important;
 	float: left !important;
 	/*display: block;*/
 	height: 200px;
@@ -1442,7 +1442,9 @@ div.faculty {
 	/*padding-right: 4%*/;
 }
 
-
+.archive-faculty .read-more {
+	top: 188px; 
+}
 /*  Media Queries (mobile browsing)
 ----------------------------------------------------- */
 /* Tablet (portrait) */

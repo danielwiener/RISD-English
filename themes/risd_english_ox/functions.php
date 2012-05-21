@@ -119,7 +119,7 @@ function dw_custom_init()
 // 	$dw_debug = New R_Debug;	
 // $dw_debug->list_performance(true);
       add_image_size('portrait', 175, '', false);
-	  add_image_size('portrait-thumbnail', 75, 100, true);
+	  add_image_size('portrait-thumbnail', 75, 90, true);
 }
 
 
@@ -216,4 +216,21 @@ function cmb_initialize_cmb_meta_boxes() {
 	if ( ! class_exists( 'cmb_Meta_Box' ) )
 		require_once 'lib/metabox/init.php';
 
+}
+  
+ add_shortcode( 'entry-updated', 'dw_entry_updated_shortcode' );
+
+/**
+ * Displays the updated date of an individual post. From the hybrid short code for published date
+ *
+ * @since 0.2.2
+ * @access public
+ * @param array $attr
+ * @return string
+ */
+function dw_entry_updated_shortcode( $attr ) {
+	$attr = shortcode_atts( array( 'before' => '', 'after' => '', 'format' => get_option( 'date_format' ) ), $attr );
+
+	$published = '<abbr class="published" title="' . sprintf( get_the_modified_date( esc_attr__( 'l, F jS, Y', 'hybrid-core' ) ) ) . '">' . sprintf( get_the_modified_date( $attr['format'] ) ) . '</abbr>';
+	return $attr['before'] . $published . $attr['after'];
 }

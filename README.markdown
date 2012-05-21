@@ -25,6 +25,7 @@ Using the starter theme -  _s, or underscores - I am creating a website for the 
 ##May 18 - 20, 2012##
 
 - Faculty archive layout - small portraits and text - 3 across
+- Faculty Single Page layout - layout, byline, image size, featured image
 
 ***
 
