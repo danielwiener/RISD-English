@@ -515,13 +515,7 @@ input[type="submit"]:hover { cursor: pointer }
 	float: right;
 	width: 79.78723404255319%;	/* 750 / 940 = 0.79787234042553 */
 }
-.page-template-fullwidth .content-wrap { width: 100%; } 
-.post-template-2c .content-wrap, .archive-faculty .content-wrap{
-	width: 79.78723404255319%; 
-} 
-.post-template-2c #content, .archive-faculty #content { 
-	width: 100%; 
-}
+
 	
 #content {
 	float: left;
@@ -1413,20 +1407,39 @@ input[type="submit"]:hover { cursor: pointer }
 
 
 /*  Faculty
------------------------------------------------------ */
+----------------------------------------------------- */ 
+
+.page-template-fullwidth .content-wrap { width: 100%; } 
+.post-template-2c .content-wrap, .archive-faculty .content-wrap{
+	width: 79.78723404255319%; 
+} 
+.post-template-2c #content, .archive-faculty #content { 
+	width: 100%; 
+}
 
 .faculty .entry-title {
 
 }
-
+div.faculty {
+	width: 28% !important;
+	float: left !important;
+	/*display: block;*/
+	height: 200px;
+   /* overflow: hidden;*/ 
+	background-color: #eee;
+	padding: 1.5%;
+	margin: 0 !important;
+	margin-right: 1% !important;
+	/*border: 1px solid #999; */
+}
 .faculty  .entry-header {
-/*	border: 1px solid #999*/;
 	width: 100%;
 }
 
 .faculty .entry-summary { 
-	width: 100%;
-	padding-left: 2.34375%;
+   width: 100%;
+	/*padding-left: 2.34375%;*/
+	/*padding-right: 4%*/;
 }
 
 

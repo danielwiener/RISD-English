@@ -19,7 +19,12 @@ Using the starter theme -  _s, or underscores - I am creating a website for the 
 
 - Faculty images, faculty layout, faculty first name and custom field
 
-
-
 ***  
+
+
+##May 18 - 20, 2012##
+
+- Faculty archive layout - small portraits and text - 3 across
+
+***
 
