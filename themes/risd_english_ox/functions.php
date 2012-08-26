@@ -234,3 +234,20 @@ function dw_entry_updated_shortcode( $attr ) {
 	$published = '<abbr class="published" title="' . sprintf( get_the_modified_date( esc_attr__( 'l, F jS, Y', 'hybrid-core' ) ) ) . '">' . sprintf( get_the_modified_date( $attr['format'] ) ) . '</abbr>';
 	return $attr['before'] . $published . $attr['after'];
 }
+
+// =====================================================================
+// = another row of buttons for Visual Editor, add styles as necessary =
+// =====================================================================
+
+function add_more_buttons($buttons) {
+ $buttons[] = 'hr';
+ $buttons[] = 'del';
+ $buttons[] = 'sub';
+ $buttons[] = 'sup';
+ $buttons[] = 'fontselect';
+ $buttons[] = 'fontsizeselect';
+ $buttons[] = 'cleanup';
+ $buttons[] = 'styleselect';
+ return $buttons;
+}
+add_filter("mce_buttons_3", "add_more_buttons");
