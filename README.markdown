@@ -29,3 +29,10 @@ Using the starter theme -  _s, or underscores - I am creating a website for the 
 
 ***
 
+##August 25, 2012 (did not record many days)##
+
+- Added 2 column layout for Pages
+- Added Student Work Page
+
+***
+
