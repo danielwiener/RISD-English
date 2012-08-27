@@ -36,3 +36,9 @@ Using the starter theme -  _s, or underscores - I am creating a website for the 
 
 ***
 
+##August 26, 2012 (did not record many days)##
+
+- Added content for Mission and Curriculum, Electives, E101 Prize, worked on audio files and Datatel.
+
+***
+
