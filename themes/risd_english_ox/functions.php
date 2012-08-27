@@ -112,7 +112,7 @@ function dw_custom_init()
 	   'show_in_nav_menus' => true,
 		'has_archive' => true,
 	   'rewrite' => true,
-	   'supports' => array('title','editor','revisions', 'excerpt')
+	   'supports' => array('title','editor','revisions', 'excerpt', 'thumbnail')
 	 ); 
 	 register_post_type('electives',$args);
 // 	include('r-debug.php');
