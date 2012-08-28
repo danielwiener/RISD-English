@@ -1412,6 +1412,17 @@ input[type="submit"]:hover { cursor: pointer }
 		width: 100%; 
 }
 
+.students  .entry-header {
+	width: 100%;
+}
+
+.students .entry-summary { 
+   width: 100%;
+	/*padding-left: 2.34375%;*/
+	/*padding-right: 4%*/;
+}
+
+
 /*  Faculty
 ----------------------------------------------------- */ 
 
