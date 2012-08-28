@@ -156,6 +156,18 @@ add_filter('contextual_help', 'my_plugin_help', 10, 3);
 /* End Post Types*/ 
 
 /**
+ * Metaboxes
+ *
+ */
+add_action( 'add_meta_boxes', 'dw_create_metabox' );
+
+function dw_create_metabox() {
+    add_meta_box( 'oxygen_metabox', __( 'Location', 'oxygen' ), 'oxygen_metabox', 'electives', 'side', 'low' ); 
+    add_meta_box( 'oxygen_metabox', __( 'Location', 'oxygen' ), 'oxygen_metabox', 'faculty', 'side', 'low' );
+	add_meta_box( 'oxygen_metabox', __( 'Location', 'oxygen' ), 'oxygen_metabox', 'exhibitions', 'side', 'low' );
+}
+
+/**
  * Include and setup custom metaboxes and fields.
  *
  * @category RISD English 1.0
