@@ -123,6 +123,54 @@ function dw_custom_init()
 }
 
 
+
+/******************************************************************************
+* @Author: Boutros AbiChedid
+* @Date:   June 20, 2011
+* @Websites: http://bacsoftwareconsulting.com/ ; http://blueoliveonline.com/
+* @Description: Preserves HTML formating to the automatically generated Excerpt.
+* Also Code modifies the default excerpt_length and excerpt_more filters.
+* @Tested: Up to WordPress version 3.1.3
+*******************************************************************************/
+function custom_wp_trim_excerpt($text) {
+$raw_excerpt = $text;
+if ( '' == $text ) {
+    //Retrieve the post content.
+    $text = get_the_content('');
+ 
+    //Delete all shortcode tags from the content.
+    $text = strip_shortcodes( $text );
+ 
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]>', ']]&gt;', $text);
+ 
+    $allowed_tags = '<p>,<strong>,<a>,<em>,<br>'; /*** MODIFY THIS. Add the allowed HTML tags separated by a comma.***/
+    $text = strip_tags($text, $allowed_tags);
+ 
+    $excerpt_word_count = 55; /*** MODIFY THIS. change the excerpt word count to any integer you like.***/
+    $excerpt_length = apply_filters('excerpt_length', $excerpt_word_count);
+ 
+    $excerpt_end = '[...]'; /*** MODIFY THIS. change the excerpt endind to something else.***/
+    $excerpt_more = apply_filters('excerpt_more', ' ' . $excerpt_end);
+ 
+    $words = preg_split("/[\n\r\t ]+/", $text, $excerpt_length + 1, PREG_SPLIT_NO_EMPTY);
+    if ( count($words) > $excerpt_length ) {
+        array_pop($words);
+        $text = implode(' ', $words);
+        $text = $text . $excerpt_more;
+    } else {
+        $text = implode(' ', $words);
+    }
+}
+return apply_filters('wp_trim_excerpt', $text, $raw_excerpt);
+}
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+add_filter('get_the_excerpt', 'custom_wp_trim_excerpt');
+
+
+
+
+
 function my_plugin_help($contextual_help, $screen_id, $screen) {
 
 	global $my_plugin_hook;
@@ -207,6 +255,24 @@ function dw_metaboxes( array $dw_meta_boxes ) {
 				'name' => 'More Information',
 				'desc' => 'Keeping this here, temporarily because I will need it',
 				'id'   => $prefix . 'faculty_more_info',
+				'type' => 'text',
+			),  		
+		),
+	);
+	
+	$dw_meta_boxes[] = array(
+		'id'         => 'optional_info',
+		'title'      => 'Optional Info',
+		'pages'      => array( 'post', ), // Post type
+		'context'    => 'normal',
+		'priority'   => 'high',
+	   	// 'show_on' => array( 'key' => 'page-template', 'value' => array( 'page-feed.php', 'page-upcoming-exhibitions.php' ) ), //only shows on artwork pages, maybe figure out how to do parent page - Sculpture
+		'show_names' => true, // Show field names on the left
+		'fields'     => array(
+			array(
+				'name' => 'External Url',
+				'desc' => 'If the News item has little text and points to an external URL, please add the url here. ON the News and Events table of contents page the featured image and title will then be linked to the external url, e.g. Red by Karen Carr. REQUIRED: Include http:// ',
+				'id'   => $prefix . 'first_name',
 				'type' => 'text',
 			),  		
 		),
