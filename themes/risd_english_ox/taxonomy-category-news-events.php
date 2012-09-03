@@ -38,11 +38,28 @@ get_header(); // Loads the header.php template. ?>
 	
 							<?php do_atomic( 'open_entry' ); // oxygen_open_entry ?>
 	
-							<?php if ( current_theme_supports( 'get-the-image' ) ) {
-								$placeholder_number = rand(1,23);			
-								get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'archive-thumbnail', 'image_class' => 'featured', 'attachment' => false, 'width' => 470, 'height' => 140,  'default_image' => get_stylesheet_directory_uri() . '/images/placeholder' .  $placeholder_number . '.jpg'  ) );							
-									
-							} ?>
+							<?php // if ( current_theme_supports( 'get-the-image' ) ) {
+							// 								$placeholder_number = rand(1,23);			
+							// 								get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'archive-thumbnail', 'image_class' => 'featured', 'attachment' => false, 'width' => 470, 'height' => 140,  'default_image' => get_stylesheet_directory_uri() . '/images/placeholder' .  $placeholder_number . '.jpg'  ) );							
+							// 									
+							// 							} 
+							if (get_post_meta($post->ID, '_dw_external_url', $single = true)) {
+								$the_news_link =  get_post_meta($post->ID, '_dw_external_url', $single = true);
+						    } else {
+								$the_news_link = get_permalink();
+							}
+						
+							$placeholder_number = rand(1,23);?>
+								
+							<a href="<?php echo $the_news_link; ?>">	
+							<?php
+							if ( has_post_thumbnail() ) {
+								the_post_thumbnail('archive-thumbnail', array('class' => 'featured'));
+							}
+							else {
+								echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/placeholder' .  $placeholder_number . '.jpg" />';
+							}
+							?></a>
 	
 							<div class="entry-header">		
 								<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title]' ); ?>
@@ -59,8 +76,8 @@ get_header(); // Loads the header.php template. ?>
 								<?php wp_link_pages( array( 'before' => '<p class="page-links">' . __( 'Pages:', 'oxygen' ), 'after' => '</p>' ) ); ?>
 								
 							</div>
-								
-							<a class="read-more" href="<?php the_permalink(); ?>">Read More &rarr;</a>
+	
+							<a class="read-more" href="<?php echo $the_news_link; ?>">Read More &rarr;</a>
 	
 							<?php do_atomic( 'close_entry' ); // oxygen_close_entry ?>
 	
