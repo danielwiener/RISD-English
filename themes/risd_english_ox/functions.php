@@ -272,7 +272,7 @@ function dw_metaboxes( array $dw_meta_boxes ) {
 			array(
 				'name' => 'External Url',
 				'desc' => 'If the News item has little text and points to an external URL, please add the url here. ON the News and Events table of contents page the featured image and title will then be linked to the external url, e.g. Red by Karen Carr. REQUIRED: Include http:// ',
-				'id'   => $prefix . 'first_name',
+				'id'   => $prefix . 'external_url',
 				'type' => 'text',
 			),  		
 		),
