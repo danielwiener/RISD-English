@@ -54,7 +54,7 @@ get_header(); // Loads the header.php template. ?>
 							<a href="<?php echo $the_news_link; ?>">	
 							<?php
 							if ( has_post_thumbnail() ) {
-								the_post_thumbnail('archive-thumbnail', array('class' => 'featured'));
+								the_post_thumbnail('archive-thumbnail', array('class' => 'featured')); 
 							}
 							else {
 								echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/placeholder' .  $placeholder_number . '.jpg" />';
