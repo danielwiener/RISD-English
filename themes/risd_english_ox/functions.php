@@ -179,8 +179,19 @@ add_filter('get_the_excerpt', 'custom_wp_trim_excerpt');
 function dw_disable_sidebars( $sidebars_widgets ) {
 	
 	global $wp_query;
+	$dw_template = '';
+	//http://themehybrid.com/support/topic/how-to-filter-based-on-the-post-template
+	// this is a pain in the neck. It would be easier to make different footers for different templates, if I keep needing to do this I will make different footers.
+
+		if ( is_singular( 'post' ) ) {
+
+			$post_id = $wp_query->get_queried_object_id();
+
+			$dw_template = get_post_meta( $post_id, '_wp_post_template', true );
+
+			}
 	
-	    if ( is_post_type_archive( 'faculty' ) ) {
+	    if ( is_post_type_archive( 'faculty' )  || 'post-template-2c.php' == $dw_template ) {
 		    $sidebars_widgets['primary'] = false;
 			$sidebars_widgets['secondary'] = false;
 	    }
