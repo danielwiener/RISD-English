@@ -20,6 +20,7 @@ get_header(); // Loads the header.php template. ?>
 	
 	</div>
 
+
 	<?php do_atomic( 'before_content' ); // oxygen_before_content ?>
 	
 	<div class="content-wrap">
@@ -29,7 +30,8 @@ get_header(); // Loads the header.php template. ?>
 			<?php do_atomic( 'open_content' ); // oxygen_open_content ?>
 	
 			<div class="hfeed">
-				
+				<br /><br />
+					<hr />
 				<h4 class="section-title">News &amp; Events</h4>
 				
 				<?php $args = array( 'post__not_in' => get_option( 'sticky_posts' ), 'posts_per_page' => 3, 'meta_key' => '_oxygen_post_location', 'meta_value' => 'primary' ); ?>
