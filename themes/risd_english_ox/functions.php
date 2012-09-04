@@ -191,7 +191,7 @@ function dw_disable_sidebars( $sidebars_widgets ) {
 
 			}
 	
-	    if ( is_post_type_archive( 'faculty' )  || 'post-template-2c.php' == $dw_template ) {
+	    if ( is_post_type_archive( 'faculty' )  || 'post-template-2c.php' == $dw_template || is_page_template('page-template-2c.php') ) {
 		    $sidebars_widgets['primary'] = false;
 			$sidebars_widgets['secondary'] = false;
 	    }
