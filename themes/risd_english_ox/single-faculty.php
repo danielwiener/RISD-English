@@ -39,14 +39,13 @@ get_header(); // Loads the header.php template. ?>
 	
 							<?php do_atomic( 'open_entry' ); // oxygen_open_entry ?>
 	                          
-							<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title]' ); ?>
+							<h1 class="faculty-title entry-title"><?php echo get_post_meta($post->ID, '_dw_first_name', $single=true) ?> <?php the_title(); ?></h1>	
 	
-							<?php echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( 'Updated by [entry-author] on [entry-updated] [entry-edit-link before=" | "]', hybrid_get_parent_textdomain() ) . '</div>' ); ?>
 	
 							<div class="entry-content">
 								<?php if ( current_theme_supports( 'get-the-image' ) ) {
 
-									get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'thumbnail-200', 'image_class' => 'alignleft', 'width' => 200, 'attachment' => false, 'default_image' => get_stylesheet_directory_uri() . '/images/default_portrait_medium_placeholder.gif' ) );							
+									get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'faculty-portrait', 'image_class' => 'alignleft', 'width' => 200, 'attachment' => false, 'default_image' => get_stylesheet_directory_uri() . '/images/default_portrait_medium_placeholder.gif' ) );							
 
 								} ?>
 								<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', hybrid_get_parent_textdomain() ) ); ?>
