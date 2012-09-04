@@ -118,8 +118,12 @@ function dw_custom_init()
 // 	include('r-debug.php');
 // 	$dw_debug = New R_Debug;	
 // $dw_debug->list_performance(true);
-      add_image_size('portrait', 175, '', false);
-	  add_image_size('portrait-thumbnail', 75, 90, true);
+      	add_image_size('portrait', 175, '', false);
+	  	add_image_size('portrait-thumbnail', 75, 90, true);
+		add_image_size('thumbnail-200', 200, 200, true);
+		
+		/* Filter the sidebar widgets. */
+			add_filter( 'sidebars_widgets', 'dw_disable_sidebars' );
 }
 
 
@@ -168,7 +172,21 @@ remove_filter('get_the_excerpt', 'wp_trim_excerpt');
 add_filter('get_the_excerpt', 'custom_wp_trim_excerpt');
 
 
+/**
+ * Disables sidebars if viewing a XXX.
+ *
+ */
+function dw_disable_sidebars( $sidebars_widgets ) {
+	
+	global $wp_query;
+	
+	    if ( is_post_type_archive( 'faculty' ) ) {
+		    $sidebars_widgets['primary'] = false;
+			$sidebars_widgets['secondary'] = false;
+	    }
 
+	return $sidebars_widgets;
+}
 
 
 function my_plugin_help($contextual_help, $screen_id, $screen) {
