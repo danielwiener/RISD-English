@@ -57,13 +57,6 @@ get_header(); // Loads the header.php template. ?>
 								<div class="entry-header">
 										
 									<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title]' ); ?>
-									
-									<?php echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( '[entry-published]', hybrid_get_parent_textdomain() ) . '</div>' ); ?>
-				
-									<?php echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( 'by [entry-author]', hybrid_get_parent_textdomain() ) . '</div>' ); ?>
-				
-									<?php echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( '[entry-edit-link]', hybrid_get_parent_textdomain() ) . '</div>' ); ?>
-			
 								</div>
 								
 								<?php echo apply_atomic_shortcode( 'byline', '<div class="byline-cat">' . __( '[entry-terms taxonomy="category" before=""]', hybrid_get_parent_textdomain() ) . '</div>' ); ?>
@@ -117,9 +110,6 @@ get_header(); // Loads the header.php template. ?>
 							}   ?>
 										
 								<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title]' ); ?>
-									
-								<?php echo apply_atomic_shortcode( 'byline', '<div class="byline">' . __( '[entry-published] / by [entry-author] / in [entry-terms taxonomy="category"] [entry-edit-link before=" / "]', hybrid_get_parent_textdomain() ) . '</div>' ); ?>
-	
 							</div><!-- .hentry -->
 		
 						<?php endwhile; ?>			
