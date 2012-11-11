@@ -342,6 +342,30 @@ function dw_entry_updated_shortcode( $attr ) {
 	return $attr['before'] . $published . $attr['after'];
 }
 
+/**
+ * Register widgetized areas, including two sidebars and four widget-ready columns in the footer.
+ *
+ * To override tdw_widgets_init() in a child theme, remove the action hook and add your own
+ * function tied to the init hook.
+ *
+ * @since RISD English 1.0
+ * @uses register_sidebar
+ */
+function dw_widgets_init() {
+	// Area 1, located at the top of the sidebar.
+	register_sidebar( array(
+		'name' => __( 'Exhibitions Summary'),
+		'id' => 'exhibitions_summary',
+		'description' => __( 'Add text for the summary of exhibitions. View it here -> http://risd-english.com/!/exhibitions' ),
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => '',
+	) );
+}
+
+add_action( 'widgets_init', 'dw_widgets_init' );
+
 // =====================================================================
 // = another row of buttons for Visual Editor, add styles as necessary =
 // =====================================================================
