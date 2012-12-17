@@ -22,6 +22,8 @@
 
 					    <p>The possibility for focused study in various areas/fields of literature and writing.
 					    Opportunities for students to deepen and enrich their studio practice by offering courses focusing on the interaction of visual art, design, literature, and writing.</p></div>
+					<?php elseif( 'faculty' == get_post_type() ): ?>
+					<!-- do nothing -->
 				<?php else: ?>
 				<?php get_sidebar( 'secondary' ); // Loads the sidebar-secondary.php template. ?>
 				<?php endif; ?>
