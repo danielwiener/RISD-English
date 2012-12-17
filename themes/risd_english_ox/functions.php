@@ -120,7 +120,7 @@ function dw_custom_init()
 // $dw_debug->list_performance(true);
       	add_image_size('portrait', 175, '', false);
 	  	add_image_size('portrait-thumbnail', 75, 90, true);
-		add_image_size('faculty-portrait', 200, 200, true);
+		add_image_size('faculty-portrait', 158, 158, true);
 		
 		/* Filter the sidebar widgets. */
 			add_filter( 'sidebars_widgets', 'dw_disable_sidebars' );
