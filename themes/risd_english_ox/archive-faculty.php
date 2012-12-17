@@ -14,7 +14,7 @@ get_header(); // Loads the header.php template. ?>
 	
 		<?php get_template_part( 'menu', 'secondary' ); // Loads the menu-secondary.php template.  ?>
 		
-		<?php get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
+		<?php // get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
 	
 	</div>
 	
@@ -33,7 +33,14 @@ get_header(); // Loads the header.php template. ?>
 						array(
 							'orderby'         	=> 'title',
 							'order'           	=> 'ASC',
-							'posts_per_page'	=> -1
+							'posts_per_page'	=> -1,
+							'tax_query' => array(
+									array(
+										'taxonomy' => 'faculty_category',
+										'field' => 'slug',
+										'terms' => 'full-time'
+									)
+								),
 						   
 						)	
 					); 
@@ -93,12 +100,12 @@ get_header(); // Loads the header.php template. ?>
 	
 			</div><!-- .hfeed -->
 	
-			<?php do_atomic( 'close_content' ); // oxygen_close_content ?>
+			<?php // do_atomic( 'close_content' ); // oxygen_close_content ?>
 	
-			<?php get_template_part( 'loop-nav' ); // Loads the loop-nav.php template. ?>
+			<?php // get_template_part( 'loop-nav' ); // Loads the loop-nav.php template. ?>
 	
 		</div><!-- #content -->
 	
-		<?php do_atomic( 'after_content' ); // oxygen_after_content ?>
+		<?php // do_atomic( 'after_content' ); // oxygen_after_content ?>
 
 <?php get_footer(); // Loads the footer.php template. ?>
