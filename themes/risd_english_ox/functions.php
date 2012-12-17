@@ -14,6 +14,40 @@
 add_action('init', 'dw_custom_init');
 function dw_custom_init() 
 {  
+	
+/**
+ * Taxonomy FOR Faculty
+ * Faculty Category
+ */	
+	 $labels = array(
+    'name' => _x( 'Faculty Category', 'taxonomy general name' ),
+    'singular_name' => _x( 'Faculty Category', 'taxonomy singular name' ),
+    'search_items' =>  __( 'Search Faculty Categories' ),
+    'popular_items' => __( 'Popular Faculty Categories' ),
+    'all_items' => __( 'All Faculty Categories' ),
+    'parent_item' => null,
+    'parent_item_colon' => null,
+    'edit_item' => __( 'Edit Faculty Category' ), 
+    'update_item' => __( 'Update Faculty Category' ),
+    'add_new_item' => __( 'Add Faculty Category' ),
+    'new_item_name' => __( 'New Faculty Category' ),
+  ); 
+
+	register_taxonomy(
+	'faculty_category',
+	'faculty',
+		array( 'hierarchical' => true,
+		'labels' => $labels,
+		'query_var' => true,
+		'show_ui' => true,
+		'public' => true,
+		'show_in_nav_menus' => true,
+		'rewrite' => array( 'slug' => 'faculty_category',
+							'with_front' => false,
+							'hierarchical' => 'true',
+							) ) );
+								
+								
    /* BEGIN Exhibition Post Type*/ 
   $labels = array(
     'name' => _x('Exhibitions', 'post type general name'),
@@ -71,7 +105,7 @@ function dw_custom_init()
 	   'show_ui' => true, 
 	   'query_var' => true, 
 	   'capability_type' => 'post',
-	  /* 'taxonomies' => array( 'post_tag', 'category'), */
+	   'taxonomies' => array( 'faculty_category'),
 	   'hierarchical' => false,
 	   'can_export' => true,
 	   'menu_position' => 5,
@@ -124,6 +158,8 @@ function dw_custom_init()
 		
 		/* Filter the sidebar widgets. */
 			add_filter( 'sidebars_widgets', 'dw_disable_sidebars' );
+			
+
 }
 
 
