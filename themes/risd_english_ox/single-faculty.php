@@ -45,7 +45,7 @@ get_header(); // Loads the header.php template. ?>
 							<div class="entry-content">
 								<?php if ( current_theme_supports( 'get-the-image' ) ) {
 
-									get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'faculty-portrait', 'image_class' => 'alignleft', 'width' => 200, 'attachment' => false, 'default_image' => get_stylesheet_directory_uri() . '/images/default_portrait_medium_placeholder.gif' ) );							
+									get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'faculty-portrait', 'image_class' => 'alignleft', 'width' => 158, 'attachment' => false, 'default_image' => get_stylesheet_directory_uri() . '/images/default_portrait_medium_placeholder.gif' ) );							
 
 								} ?>
 								<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', hybrid_get_parent_textdomain() ) ); ?>
