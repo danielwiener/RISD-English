@@ -947,15 +947,15 @@ input[type="submit"]:hover { cursor: pointer }
 	float: left;
 	width: 100%;
 }
-.entry-header {
-	float: left;
-	width: 30%;
+.entry-header { /*changed this so title and summary go all the way across rather than in columns.*/
+	/*float: left;*/
+	width: 100%;
 } 
 
 .entry-summary {
-	float: right;
-	width: 65%;
-	padding-left: 2.34375%;
+	/*float: right;*/
+	width: 100%;
+	/*padding-left: 2.34375%;*/
 }  
 
 
