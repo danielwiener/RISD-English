@@ -15,11 +15,10 @@ get_header(); // Loads the header.php template. ?>
 	
 		<?php get_template_part( 'menu', 'secondary' ); // Loads the menu-secondary.php template.  ?>
 		
-		<?php get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
+		<?php // get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
 	
 	</div>
 
-	<?php do_atomic( 'before_content' ); // oxygen_before_content ?>
 	
 	<div class="content-wrap">	
 
@@ -33,11 +32,8 @@ get_header(); // Loads the header.php template. ?>
 	
 					<?php while ( have_posts() ) : the_post(); ?>
 	
-						<?php do_atomic( 'before_entry' ); // oxygen_before_entry ?>
-	
 						<div id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
 	
-							<?php do_atomic( 'open_entry' ); // oxygen_open_entry ?>
 	                          
 							<h1 class="faculty-title entry-title"><?php echo get_post_meta($post->ID, '_dw_first_name', $single=true) ?> <?php the_title(); ?></h1>	
 	
@@ -54,30 +50,59 @@ get_header(); // Loads the header.php template. ?>
 								
 							</div><!-- .entry-content -->
 	
-							<?php do_atomic( 'close_entry' ); // oxygen_close_entry ?>
-	
 						</div><!-- .hentry -->
-	
-						<?php do_atomic( 'after_entry' ); // oxygen_after_entry ?>
-	
-						<?php get_sidebar( 'after-singular' ); // Loads the sidebar-after-singular.php template. ?>
-	
-						<?php do_atomic( 'after_singular' ); // oxygen_after_singular ?>
-	
-						<?php comments_template( '/comments.php', true ); // Loads the comments.php template. ?>
 	
 					<?php endwhile; ?>
 	
 				<?php endif; ?>
 	
 			</div><!-- .hfeed -->
-	
-			<?php do_atomic( 'close_content' ); // oxygen_close_content ?>
-	
-			<?php get_template_part( 'loop-nav' ); // Loads the loop-nav.php template. ?>
+
 	
 		</div><!-- #content -->
 	
-		<?php do_atomic( 'after_content' ); // oxygen_after_content ?>
+		<div id="sidebar-secondary" class="sidebar">
+
+			<div id="full-time-faculty" class="widget"><div class="widget-wrap widget-inside"><h3 class="widget-title"><a href="http://risd-english.dev/!/news-events">Full Time Faculty</a></h3><ul>
+				<?php $args = array(
+							'orderby'         	=> 'title',
+							'order'           	=> 'ASC',
+							'posts_per_page'	=> -1,
+							'tax_query' => array(
+								array(
+									'taxonomy' => 'faculty_category',
+									'field' => 'slug',
+									'terms' => 'full-time'
+								)
+							),
+					);
+					$fulltime_query = new WP_Query(	$args );
+					while ( $fulltime_query->have_posts() ) : $fulltime_query->the_post();
+					?>
+			<li class="cat-post-item">
+				<a class="post-title" href="<?php the_permalink(); ?>" rel="bookmark" title="Read More about <?php the_title(); ?>"><?php echo get_post_meta($post->ID, "_dw_first_name", true); ?>  <?php the_title(); ?></a> </li>
+				<?php endwhile; ?>
+				</ul></div></div>
+				<div id="senior-lecturers" class="widget"><div class="widget-wrap widget-inside"><h3 class="widget-title"><a href="http://risd-english.dev/!/news-events">Senior Lecturers</a></h3><ul>
+					<?php $args = array(
+								'orderby'         	=> 'title',
+								'order'           	=> 'ASC',
+								'posts_per_page'	=> -1,
+								'tax_query' => array(
+									array(
+										'taxonomy' => 'faculty_category',
+										'field' => 'slug',
+										'terms' => 'senior-lecturer'
+									)
+								),
+						);
+						$senior_query = new WP_Query(	$args );
+						while ( $senior_query->have_posts() ) : $senior_query->the_post(); ?>
+				<li class="cat-post-item">
+					<a class="post-title" href="<?php the_permalink(); ?>" rel="bookmark" title="Read More about <?php the_title(); ?>"><?php echo get_post_meta($post->ID, "_dw_first_name", true); ?>  <?php the_title(); ?></a></li>
+					<?php endwhile; ?>
+					</ul></div>
+					</div></div> <!-- sidebar -->
+	
 
 <?php get_footer(); // Loads the footer.php template. ?>
