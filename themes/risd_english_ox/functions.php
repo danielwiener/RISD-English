@@ -149,6 +149,40 @@ function dw_custom_init()
 	   'supports' => array('title','editor','revisions', 'excerpt', 'thumbnail')
 	 ); 
 	 register_post_type('electives',$args);
+	
+    /* BEGIN Featured Content Post Type*/ 
+	$labels = array(
+	   'name' => _x('Featured Content', 'post type general name'),
+	   'singular_name' => _x('Featured Content', 'post type singular name'),
+	   'add_new' => _x('Add New', 'featured_content'),
+	   'add_new_item' => __('Add New Featured Content'),
+	   'edit_item' => __('Edit Featured Content'),
+	   'edit' => _x('Edit', 'featured_content'),
+	   'new_item' => __('New Featured Content'),
+	   'view_item' => __('View Featured Content'),
+	   'search_items' => __('Search Featured Content'),
+	   'not_found' =>  __('No Featured Content found'),
+	   'not_found_in_trash' => __('No Featured Content found in Trash'), 
+	   'view' =>  __('View Featured Content'),
+	   'parent_item_colon' => ''
+	 );
+	 $args = array(
+	   'labels' => $labels,
+	   'public' => true,
+	   'publicly_queryable' => true,
+	   'show_ui' => true, 
+	   'query_var' => true, 
+	   'capability_type' => 'post',
+	  /* 'taxonomies' => array( 'post_tag', 'category'), */
+	   'hierarchical' => false,
+	   'can_export' => true,
+	   'menu_position' => 5,
+	   'show_in_nav_menus' => true,
+		'has_archive' => true,
+	   'rewrite' => true,
+	   'supports' => array('title','editor','revisions', 'excerpt', 'thumbnail')
+	 ); 
+	 register_post_type('featured_content',$args);
 // 	include('r-debug.php');
 // 	$dw_debug = New R_Debug;	
 // $dw_debug->list_performance(true);
@@ -278,6 +312,7 @@ function dw_create_metabox() {
     add_meta_box( 'oxygen_metabox', __( 'Location', 'oxygen' ), 'oxygen_metabox', 'electives', 'side', 'low' ); 
     add_meta_box( 'oxygen_metabox', __( 'Location', 'oxygen' ), 'oxygen_metabox', 'faculty', 'side', 'low' );
 	add_meta_box( 'oxygen_metabox', __( 'Location', 'oxygen' ), 'oxygen_metabox', 'exhibitions', 'side', 'low' );
+	add_meta_box( 'oxygen_metabox', __( 'Location', 'oxygen' ), 'oxygen_metabox', 'featured_content', 'side', 'low' );
 }
 
 /**
