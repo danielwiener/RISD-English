@@ -269,6 +269,18 @@ function dw_disable_sidebars( $sidebars_widgets ) {
 	return $sidebars_widgets;
 }
 
+// ====================================================================================================================================
+// = Short Title function - http://wordpress.org/support/topic/how-to-control-the-post-title-lengh - short_title('&hellip', 30) (etc) =
+// ====================================================================================================================================
+function short_title($after = '', $length) {
+	$mytitle = get_the_title();
+	if ( strlen($mytitle) > $length ) {
+	$mytitle = substr($mytitle,0,$length);
+	echo $mytitle . $after;
+	} else {
+	echo $mytitle;
+	}
+}
 
 function my_plugin_help($contextual_help, $screen_id, $screen) {
 

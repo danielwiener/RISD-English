@@ -63,7 +63,7 @@ get_header(); // Loads the header.php template. ?>
 	
 		<div id="sidebar-secondary" class="sidebar">
 
-			<div id="full-time-faculty" class="widget"><div class="widget-wrap widget-inside"><h3 class="widget-title"><a href="http://risd-english.dev/!/news-events">Full Time Faculty</a></h3><ul>
+			<div id="full-time-faculty" class="widget"><div class="widget-wrap widget-inside"><h3 class="widget-title"><a href="/faculty">Full Time Faculty</a></h3><ul>
 				<?php $args = array(
 							'orderby'         	=> 'title',
 							'order'           	=> 'ASC',
@@ -83,7 +83,7 @@ get_header(); // Loads the header.php template. ?>
 				<a class="post-title" href="<?php the_permalink(); ?>" rel="bookmark" title="Read More about <?php the_title(); ?>"><?php echo get_post_meta($post->ID, "_dw_first_name", true); ?>  <?php the_title(); ?></a> </li>
 				<?php endwhile; ?>
 				</ul></div></div>
-				<div id="senior-lecturers" class="widget"><div class="widget-wrap widget-inside"><h3 class="widget-title"><a href="http://risd-english.dev/!/news-events">Senior Lecturers</a></h3><ul>
+				<div id="senior-lecturers" class="widget"><div class="widget-wrap widget-inside"><h3 class="widget-title"><a href="/faculty">Senior Lecturers</a></h3><ul>
 					<?php $args = array(
 								'orderby'         	=> 'title',
 								'order'           	=> 'ASC',
