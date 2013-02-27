@@ -77,10 +77,15 @@ get_header(); // Loads the header.php template. ?>
 					}
 							?>
 								<h2>Fall Semester <?php echo $fall_year; ?></h2>
+								<p>ENGL-E101<strong> LITERATURE SEMINAR: DESIGN IN WORDS<br>
+									Note: There are approximately 30 sections of this course, per year)
+									</strong></p>
+								<p>An introduction to literary study that helps students develop the skills necessary for college-level reading, writing, research and critical thinking.  Through exposure to a variety of literary forms and genres, historical periods and critical approaches, students are taught how to read closely, argue effectively and develop a strong writing voice.  The course is reading and writing intensive and organized around weekly assignments.</p><p>Required for graduation for all undergraduates, including transfers, unless waived.</p><p>For the Fall term, freshmen are pre-registered into this course and a small number of seats are available via web registration for upperclassmen. To register for the Spring term, contact the Liberal Arts Office.<br><strong>Credits: 3.00</strong></p><hr />
+								
 								<?php // Custom sort on the names of the items:
-								usort ($fall_courses, function($a, $b) {
-								    return strcmp($a->COURSETITLE, $b->COURSETITLE);
-								}); ?>
+								// usort ($fall_courses, function($a, $b) {
+								// 								    return strcmp($a->COURSETITLE, $b->COURSETITLE);
+								//}); ?>
 									<?php foreach ($fall_courses as $fall_course): ?>
 											
 										<p><?php echo $fall_course->COURSENAME ?> - <strong><?php echo $fall_course->COURSETITLE ?></strong></p>
@@ -92,9 +97,9 @@ get_header(); // Loads the header.php template. ?>
 									<?php endforeach; ?><hr />
 							<h2>Winter Session <?php echo $winter_year; ?></h2>
 							<?php
-							usort ($winter_courses, function($a, $b) {
-							    return strcmp($a->COURSETITLE, $b->COURSETITLE);
-							});
+							// usort ($winter_courses, function($a, $b) {
+							// 							return strcmp($a->COURSETITLE, $b->COURSETITLE);
+							// 							});
 							?>
 								<?php foreach ($winter_courses as $winter_course): ?>
 									<p><?php echo $winter_course->COURSENAME ?> - <strong><?php echo $winter_course->COURSETITLE ?></strong></p>
@@ -104,9 +109,9 @@ get_header(); // Loads the header.php template. ?>
 										<?php endif ?></p><hr />
 								<?php endforeach; ?><hr />
 						<h2>Spring Semester <?php echo $spring_year; ?></h2>
-						<?php usort ($spring_courses, function($a, $b) {
-						    return strcmp($a->COURSETITLE, $b->COURSETITLE);
-						}); ?>
+						<?php // usort ($spring_courses, function($a, $b) {
+						// 						    return strcmp($a->COURSETITLE, $b->COURSETITLE);
+						// 						}); ?>
 							<?php foreach ($spring_courses as $spring_course): ?>
 								<p><?php echo $spring_course->COURSENAME ?> - <strong><?php echo $spring_course->COURSETITLE ?></strong></p>
 								<p><?php echo $spring_course->COURSEDESC; ?>
