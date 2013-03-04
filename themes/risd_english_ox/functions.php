@@ -389,6 +389,30 @@ function dw_metaboxes( array $dw_meta_boxes ) {
 			),  		
 		),
 	);
+	
+	$dw_meta_boxes[] = array(
+		'id'         => 'courses_info',
+		'title'      => 'Courses Info',
+		'pages'      => array( 'page', ), // Post type
+		'context'    => 'normal',
+		'priority'   => 'high',
+	   	'show_on' => array( 'key' => 'page-template', 'value' => array( 'courses-feed.php' ) ), //only shows on courses pages
+		'show_names' => true, // Show field names on the left
+		'fields'     => array(
+			array(
+				'name' => 'ENGL 101 for Fall Semsester',
+				'desc' => 'Add or modify text for the Eng-101 classes for the Fall Semsester',
+				'id'   => $prefix . 'eng-101-fall',
+				'type' => 'wysiwyg',
+			),  
+			array(
+				'name' => 'ENGL 101 for Spring Semsester',
+				'desc' => 'Add or modify text for the Eng-101 classes for the Spring Semsester ',
+				'id'   => $prefix . 'eng-101-spring',
+				'type' => 'wysiwyg',
+			),		
+		),
+	);
 
 
 	// Add other metaboxes as needed
