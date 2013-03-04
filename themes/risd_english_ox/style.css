@@ -1599,3 +1599,57 @@ input[type="submit"]:hover { cursor: pointer }
 .alert-block p + p {
   margin-top: 5px;
 }
+
+
+/* -------------------------------------------------------------- */
+/* LISTS                                                                      */
+/* -------------------------------------------------------------- */
+
+/* Expanding List -------------------------------------------- */
+.expandingList {  
+    margin-bottom: 20px;
+}
+.expandingList ul { 
+	margin: 0 !important; 
+}
+.expandingList ul li {  
+	list-style-type: none !important;
+    border-bottom: 1px solid #CBCBCB;
+    padding: 8px 0 !important;
+}
+.expandingList ul li a.onState {
+    font-weight: bold;  
+    color: #000 !important;
+}
+.expandingList ul li img {
+    float: left;
+}
+.expandingList ul li ul {  
+    margin-left: 15px;
+}
+.expandingList ul li ul li {  
+    list-style-type: disc;
+    border: 0;
+}
+.expandingList ul li .cdesc { 
+    display: none;
+    font-family: Georgia, 'Times New Roman', Times, Serif;
+    line-height: 150%;
+    padding: 10px 0 0 0;  
+}
+.expandingList ul li .cdesc h5 { 
+    margin-top: 0;
+    color: #000;
+}
+.expandingList ul li .cdesc h5 span { 
+    color: #666;
+}
+
+/* Expanding List - Courses ---------------------------------- */
+#courses .cdcontainer > p {
+	width: 90px;
+	float:left;
+}
+#courses .cdesc {
+	margin-left: 90px;
+}

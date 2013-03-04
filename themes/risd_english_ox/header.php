@@ -35,7 +35,25 @@
 	
 	<!-- WP Head -->
 	<?php wp_head(); ?>
-
+	<?php if (is_page_template('courses-feed.php')): ?>	
+	<script type="text/javascript">
+	// Expanding list
+	jQuery(document).ready(function($){
+	$(".expandingList ul li a").click(function(){
+	//alert('shit');
+	if ($(this).hasClass('onState')) {
+	                   $(this).next().slideUp('500');
+	                  $(this).removeClass('onState');
+	                    return false;
+	                } else {
+	                    $(this).next().slideDown('500');
+	                    $(this).addClass('onState');
+	return false;
+	                }
+	});
+	});
+	            </script>
+	<?php endif ?>
 </head>
 
 <body class="<?php hybrid_body_class(); ?> no-js">
