@@ -305,19 +305,20 @@ function my_plugin_help($contextual_help, $screen_id, $screen) {
 	if ($screen_id == "faculty" || $screen_id == "edit-faculty") {
 
 		$contextual_help = file_get_contents('lib/documentation/faculty_help.php', true);
+		$faculty_profile_help = file_get_contents('lib/documentation/faculty_profile_help.php', true);
 	 
 	 // print_r($screen_id);
    
 	
 	$screen->add_help_tab( array(
 	        'id'	=> 'my_help_tab',
-	        'title'	=> __('My Help Tab'),
-	        'content'	=> '<p>' . __( 'Descriptive content that will show in My Help Tab-body goes here.' ) . '</p>',
+	        'title'	=> __('Faculty Profile Help'),
+	        'content'	=> $faculty_profile_help,
 	    ) );
 	
 	$screen->add_help_tab( array(
 	        'id'	=> 'more_help',
-	        'title'	=> __('More Help'),
+	        'title'	=> __('Faculty Help'),
 	        'content'	=> $contextual_help,
 	    ) );
  // return $contextual_help; 
