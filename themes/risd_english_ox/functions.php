@@ -104,7 +104,24 @@ function dw_custom_init()
 	   'publicly_queryable' => true,
 	   'show_ui' => true, 
 	   'query_var' => true, 
-	   'capability_type' => 'post',
+		'map_meta_cap' => true,
+		'capability_type' => 'faculty',
+		// 'capabilities' => array(
+		// 			'edit_post'		 			=> "edit_faculty",
+		// 			'read_post'		 			=> "read_faculty",
+		// 			'delete_post'		 		=> "delete_faculty",
+		// 			'edit_posts'		 		=> "edit_facultys",
+		// 			'edit_others_posts'	 		=> "edit_others_facultys",
+		// 			'publish_posts'		 		=> "publish_facultys",
+		// 			'read_private_posts'	 	=> "read_private_facultys",
+		// 			'delete_posts'           	=> "delete_facultys",
+		// 			'delete_private_posts'   	=> "delete_private_facultys",
+		// 			'delete_published_posts' 	=> "delete_published_facultys",
+		// 			'delete_others_posts'    	=> "delete_others_facultys",
+		// 			'edit_private_posts'    	=> "edit_private_facultys",
+		// 			'edit_published_posts'   	=> "edit_published_facultys",
+		// 		),
+	   //'capability_type' => 'post',
 	   'taxonomies' => array( 'faculty_category'),
 	   'hierarchical' => false,
 	   'can_export' => true,
@@ -112,7 +129,7 @@ function dw_custom_init()
 	   'show_in_nav_menus' => true,
 		'has_archive' => true,
 	   'rewrite' => true,
-	   'supports' => array('title','editor','revisions', 'thumbnail', 'excerpt')
+	   'supports' => array('title','editor','revisions', 'thumbnail', 'excerpt', 'author')
 	 ); 
 	 register_post_type('faculty',$args);  
 	
