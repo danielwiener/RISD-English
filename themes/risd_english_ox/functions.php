@@ -309,6 +309,11 @@ function my_plugin_help($contextual_help, $screen_id, $screen) {
 	 
 	 // print_r($screen_id);
    
+	$screen->add_help_tab( array(
+	        'id'	=> 'more_help',
+	        'title'	=> __('Faculty Help'),
+	        'content'	=> $contextual_help,
+	    ) );
 	
 	$screen->add_help_tab( array(
 	        'id'	=> 'my_help_tab',
@@ -316,16 +321,125 @@ function my_plugin_help($contextual_help, $screen_id, $screen) {
 	        'content'	=> $faculty_profile_help,
 	    ) );
 	
-	$screen->add_help_tab( array(
-	        'id'	=> 'more_help',
-	        'title'	=> __('Faculty Help'),
-	        'content'	=> $contextual_help,
-	    ) );
+
  // return $contextual_help; 
-	    $screen->set_help_sidebar(
-	                              __('This is the content you will be adding to the sidebar for the current page. You must make sure other tabs have already been added using the "add_help_tab" function above. This sidebar will not show up unless there are tabs for the current screen')
-	                             );
+	    // $screen->set_help_sidebar(
+	    //                           __('This is the content you will be adding to the sidebar for the current page. You must make sure other tabs have already been added using the "add_help_tab" function above. This sidebar will not show up unless there are tabs for the current screen')
+	    //                          );
 }
+
+if ($screen_id == "page" || $screen_id == "edit-page") {
+
+	$page_hierarchy = file_get_contents('lib/documentation/page_hierarchy.php', true);
+	//$faculty_profile_help = file_get_contents('lib/documentation/faculty_profile_help.php', true);
+ 
+ // print_r($screen_id);
+
+
+$screen->add_help_tab( array(
+        'id'	=> 'page_hierarchy',
+        'title'	=> __('LAS Pages Help'),
+        'content'	=> $page_hierarchy,
+    ) );
+
+// $screen->add_help_tab( array(
+//         'id'	=> 'more_help',
+//         'title'	=> __('Faculty Help'),
+//         'content'	=> $contextual_help,
+//     ) );
+
+}
+
+if ($screen_id == "electives" || $screen_id == "edit-electives") {
+
+	$elective_help = file_get_contents('lib/documentation/elective_help.php', true);
+	//$faculty_profile_help = file_get_contents('lib/documentation/faculty_profile_help.php', true);
+ 
+ // print_r($screen_id);
+
+
+$screen->add_help_tab( array(
+        'id'	=> 'electives_help',
+        'title'	=> __('Elective Help'),
+        'content'	=> $elective_help,
+    ) );
+
+// $screen->add_help_tab( array(
+//         'id'	=> 'more_help',
+//         'title'	=> __('Faculty Help'),
+//         'content'	=> $contextual_help,
+//     ) );
+
+}
+
+if ($screen_id == "exhibitions" || $screen_id == "edit-exhibitions") {
+
+	$exhibition_help = file_get_contents('lib/documentation/exhibition_help.php', true);
+	//$faculty_profile_help = file_get_contents('lib/documentation/faculty_profile_help.php', true);
+ 
+ // print_r($screen_id);
+
+
+$screen->add_help_tab( array(
+        'id'	=> 'exhibitions_help',
+        'title'	=> __('Exhibitions Help'),
+        'content'	=> $exhibition_help,
+    ) );
+
+// $screen->add_help_tab( array(
+//         'id'	=> 'more_help',
+//         'title'	=> __('Faculty Help'),
+//         'content'	=> $contextual_help,
+//     ) );
+
+}
+
+if ($screen_id == "featured_content" || $screen_id == "edit-featured_content") {
+
+	$featured_content_help = file_get_contents('lib/documentation/featured_content_help.php', true);
+	//$faculty_profile_help = file_get_contents('lib/documentation/faculty_profile_help.php', true);
+ 
+ // print_r($screen_id);
+
+
+$screen->add_help_tab( array(
+        'id'	=> 'featured_content_help',
+        'title'	=> __('Featured Content Help'),
+        'content'	=> $featured_content_help,
+    ) );
+
+// $screen->add_help_tab( array(
+//         'id'	=> 'more_help',
+//         'title'	=> __('Faculty Help'),
+//         'content'	=> $contextual_help,
+//     ) );
+
+}
+
+if ($screen_id == "post" || $screen_id == "edit-post") {
+
+	$las_news_help = file_get_contents('lib/documentation/las_news_help.php', true);
+	//$faculty_profile_help = file_get_contents('lib/documentation/faculty_profile_help.php', true);
+ 
+ // print_r($screen_id);
+
+
+$screen->add_help_tab( array(
+        'id'	=> 'las_news_help',
+        'title'	=> __('LAS News and Events'),
+        'content'	=> $las_news_help,
+    ) );
+
+// $screen->add_help_tab( array(
+//         'id'	=> 'more_help',
+//         'title'	=> __('Faculty Help'),
+//         'content'	=> $contextual_help,
+//     ) );
+
+}
+
+
+
 }
 
 add_filter('contextual_help', 'my_plugin_help', 10, 3);
@@ -487,6 +601,16 @@ function dw_widgets_init() {
 		'before_title' => '',
 		'after_title' => '',
 	) );
+	
+	register_sidebar( array(
+		'name' => __( 'Front Page Introduction'),
+		'id' => 'front_page_introduction',
+		'description' => __( 'Add text for the introduction to LAS on the front page below the slide show. View it here -> http://risd-english.com/' ),
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '<h3><a href="/curriculum">',
+		'after_title' => '</a></h3>',
+	) );
 }
 
 add_action( 'widgets_init', 'dw_widgets_init' );
@@ -507,3 +631,55 @@ function add_more_buttons($buttons) {
  return $buttons;
 }
 add_filter("mce_buttons_3", "add_more_buttons");
+
+// Add custom taxonomies and custom post types counts to dashboard
+add_action( 'right_now_content_table_end', 'my_add_counts_to_dashboard' );
+function my_add_counts_to_dashboard() {
+    // Custom taxonomies counts
+    $taxonomies = get_taxonomies( array( '_builtin' => false ), 'objects' );
+      foreach ( $taxonomies as $taxonomy ) {
+          $num_terms  = wp_count_terms( $taxonomy->name );
+          $num = number_format_i18n( $num_terms );
+          $text = _n( $taxonomy->labels->singular_name, $taxonomy->labels->name, $num_terms );
+          $associated_post_type = $taxonomy->object_type;
+          if ( current_user_can( 'manage_categories' ) ) {
+              $num = '<a href="edit-tags.php?taxonomy=' . $taxonomy->name . '&post_type=' . $associated_post_type[0] . '">' . $num . '</a>';
+              $text = '<a href="edit-tags.php?taxonomy=' . $taxonomy->name . '&post_type=' . $associated_post_type[0] . '">' . $text . '</a>';
+          }
+          echo '<td class="first b b-' . $taxonomy->name . 's">' . $num . '</td>';
+          echo '<td class="t ' . $taxonomy->name . 's">' . $text . '</td>';
+          echo '</tr><tr>';
+      }
+
+    // Custom post types counts
+    $post_types = get_post_types( array( '_builtin' => false ), 'objects' );
+	$post_type_array = array('faculty', 'electives', 'exhibitions', 'featured_content' );
+	ksort($post_types);
+    foreach ( $post_types as $post_type ) {
+		if ( in_array($post_type->name, $post_type_array)) {
+	
+        $num_posts = wp_count_posts( $post_type->name );
+        $num = number_format_i18n( $num_posts->publish );
+        $text = _n( $post_type->labels->singular_name, $post_type->labels->name, $num_posts->publish );
+        if ( current_user_can( 'edit_posts' ) ) {
+            $num = '<a href="edit.php?post_type=' . $post_type->name . '">' . $num . '</a>';
+            $text = '<a href="edit.php?post_type=' . $post_type->name . '">' . $text . '</a>';
+        }
+        echo '<td class="first b b-' . $post_type->name . 's">' . $num . '</td>';
+        echo '<td class="t ' . $post_type->name . 's">' . $text . '</td>';
+        echo '</tr>';
+
+        if ( $num_posts->pending > 0 ) {
+            $num = number_format_i18n( $num_posts->pending );
+            $text = _n( $post_type->labels->singular_name . ' pending', $post_type->labels->name . ' pending', $num_posts->pending );
+            if ( current_user_can( 'edit_posts' ) ) {
+                $num = '<a href="edit.php?post_status=pending&post_type=' . $post_type->name . '">' . $num . '</a>';
+                $text = '<a href="edit.php?post_status=pending&post_type=' . $post_type->name . '">' . $text . '</a>';
+            }
+            echo '<td class="first b b-' . $post_type->name . 's">' . $num . '</td>';
+            echo '<td class="t ' . $post_type->name . 's">' . $text . '</td>';
+            echo '</tr>';
+        }
+    }
+}	
+}
