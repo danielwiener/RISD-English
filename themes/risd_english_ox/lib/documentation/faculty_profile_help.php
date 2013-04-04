@@ -1,1 +1,5 @@
-This is for the Faculty Profile.
+
+<h2>Editing Your Own Bio Page</h2>
+<p>For basic instructions, see the <strong>Faculty Help</strong> page (available to click on the left).</p>
+<p>Please take advantage of the opportunity here to share your work!</p> <p>Note that in the main text box, you can add as much text as you like, as well as any images or video. </p>
+<p>For help with both, see my <a href="http://documentation.diyartportfolios.com/" target="_blank">Documentation - Instructions for WordPress</a> website. You can find instructions for both <a href="http://documentation.diyartportfolios.com/posts/formatting-text" target="_blank">Formatting Text</a>, <a href="http://documentation.diyartportfolios.com/posts/create-a-post-with-text-and-image" target="_blank">Inserting Images</a>, and <a href="http://documentation.diyartportfolios.com/!/video" target="_blank">Uploading Video</a>.</p>
