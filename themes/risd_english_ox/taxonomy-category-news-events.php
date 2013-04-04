@@ -57,12 +57,14 @@ get_header(); // Loads the header.php template. ?>
 								the_post_thumbnail('archive-thumbnail', array('class' => 'featured')); 
 							}
 							else {
-								echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/placeholder' .  $placeholder_number . '.jpg" />';
+								echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/images/placeholder' .  $placeholder_number . '.jpg" class="featured wp-post-image" />';
 							}
 							?></a>
 	
 							<div class="entry-header">		
-								<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title]' ); ?>
+								<?php //echo apply_atomic_shortcode( 'entry_title', '[entry-title]' );?>
+								<h2 class="entry-title"><a href="<?php echo $the_news_link; ?>" title="<?php echo get_the_title(); ?>"><?php echo get_the_title(); ?></a></h2>
+								 
 									
 								<?php echo apply_atomic_shortcode( 'byline_date', '<div class="byline byline-date">' . __( '[entry-published]', 'oxygen' ) . '</div>' ); ?>
 							</div>
