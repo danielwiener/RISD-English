@@ -37,9 +37,9 @@ function remove_dashboard_widgets() {
  	global $wp_meta_boxes;
 
 	// Remove the incomming links widget
-	//unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);	
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_incoming_links']);	
     	//Recent Comments
-	//unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
+	unset($wp_meta_boxes['dashboard']['normal']['core']['dashboard_recent_comments']);
 	// Remove 
 	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_primary']);
 	unset($wp_meta_boxes['dashboard']['side']['core']['dashboard_secondary']);
