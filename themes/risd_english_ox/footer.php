@@ -15,13 +15,12 @@
 				<?php if (is_front_page()): ?>
 				<div id="sidebar-secondary" class="sidebar"> 
 					<br /><br /><hr />
-					<h3><a href="/curriculum">Literary Arts and Studies</a></h3>	
-				<p>The Department of Literary Arts and Studies aims to provide:</p>
+					<?php 
+					if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('front_page_introduction') ) : ?>
 
-					    <p>An outstanding education in literary studies and creative writing that is historically and culturally diverse and representative of the main forms of inquiry and critique integral to a well-rounded education.</p>
+						<!-- Sidebar fallback content -->
 
-					    <p>The possibility for focused study in various areas/fields of literature and writing.
-					    Opportunities for students to deepen and enrich their studio practice by offering courses focusing on the interaction of visual art, design, literature, and writing.</p></div>
+					<?php endif; // End Dynamic Sidebar exhibitions_summary ?></div>
 					<?php elseif( 'faculty' == get_post_type() ): ?>
 					<!-- do nothing -->
 				<?php else: ?>
