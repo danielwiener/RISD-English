@@ -1,6 +1,7 @@
 <h2>How to Add New Featured Content</h2>
 
 <p><strong>Featured Content</strong> is the rotating slideshow that appears on the home page. Keep in mind there can only be <strong>SIX</strong> seperate slides.</p>
+<p>You can periodically change what 6 images are displayed in Featured Content. Toggle the entry's status from Published to Draft or Draft to Published. If an entry is a Draft it remains as is in the backend but is not shown on the front end. You can have as many drafts as you want but only 6 should be published at one time. <a href="http://wordpress.tv/2009/01/14/saving-and-returning-to-draft-posts-pages/">More info on Drafts</a></p>
 
 <p><strong>Title</strong>: This is the title that appears in all capitals, in a black and white banner, overlaid across the Featured Image. Do not make the title too long, or the banner will wrap. It should be around three to five words.</p>
 
