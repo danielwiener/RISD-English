@@ -163,7 +163,10 @@ get_header(); // Loads the header.php template. ?>
 					<?php get_template_part( 'loop-error' ); // Loads the loop-error.php template. ?>
 	
 				<?php endif; ?>
-	
+					<br clear="both" />
+					<hr />
+						<h2>Part Time Faculty</h2>
+					<p>For an LAS faculty list that includes part time faculty members, please visit: <a href="http://www.risd.edu/Academics/English/Faculty/" title="Faculty | Literary Arts + Studies | Academic Departments | RISD">http://www.risd.edu/Academics/English/Faculty/</a></p>
 			</div><!-- .hfeed -->
 
 	
