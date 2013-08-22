@@ -5,7 +5,7 @@
  */
 
 $args = array( 
-	'posts_per_page' => 6,
+	'posts_per_page' => 7,
 	'post_type' 	=> 'any',
 	'meta_key' 		=> '_oxygen_post_location',
 	'meta_value' 	=> 'featured',
@@ -41,28 +41,28 @@ if ( $loop->have_posts() ) : ?>
 			
 		</div><!-- #featured-content -->
 				
-		<div id="slider-nav">
-		
-			<ul id="slide-thumbs">
-				
-				<?php $slidecount = 1;
-				$args = array( 'meta_key' => '_oxygen_post_location', 'meta_value' => 'featured', 'post__not_in' => get_option( 'sticky_posts' ) );
-				
-				while ( $loop->have_posts() ) : $loop->the_post(); ?>
-						   
-					<li class="<?php echo ( $slidecount == 6 ) ? 'last' : ''; ?>">
-					
-						<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'slider-nav-thumbnail' ) ); ?>
-							
-					</li>
-				
-					<?php $slidecount++; ?>
-					 
-				<?php endwhile; ?>
-					
-			</ul>
+		<!-- <div id="slider-nav">
 			
-		</div><!-- #slider-nav-->
+				<ul id="slide-thumbs">
+					
+					<?php $slidecount = 1;
+					$args = array( 'meta_key' => '_oxygen_post_location', 'meta_value' => 'featured', 'post__not_in' => get_option( 'sticky_posts' ) );
+					
+					while ( $loop->have_posts() ) : $loop->the_post(); ?>
+							   
+						<li class="<?php echo ( $slidecount == 6 ) ? 'last' : ''; ?>">
+						
+							<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'slider-nav-thumbnail' ) ); ?>
+								
+						</li>
+					
+						<?php $slidecount++; ?>
+						 
+					<?php endwhile; ?>
+						
+				</ul>
+				
+			</div> --><!-- #slider-nav-->
 	   
 	</div><!-- .featured-wrapper-->
 	
