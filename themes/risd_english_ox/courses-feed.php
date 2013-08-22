@@ -7,7 +7,9 @@
  * @package RISD-English
  * @subpackage Template
  */
-
+$winter_course_titles = array();
+$fall_course_titles = array();
+$spring_course_titles = array();
 get_header(); // Loads the header.php template. ?>
 
 	<div class="aside">
@@ -47,7 +49,7 @@ get_header(); // Loads the header.php template. ?>
 							foreach($course_xml->children() as $department) {
 								//if($department->NAME == 'ENGLISH DEPT') {
 								foreach($department->children() as $course) {
-									if( $course->COURSENAME != "" && $department->NAME == 'ENGLISH DEPT '){
+									if( $course->COURSENAME != "" && $department->NAME == 'LITERARY ARTS AND STUDIES'){
 										
 									preg_match("/(\d{4})([A-Z][A-Z])/", $course->COURSETERM, $results);
 									$course_year = $results[1];
@@ -66,15 +68,18 @@ get_header(); // Loads the header.php template. ?>
 								if ($course_semester =='WS') {
 									$winter_courses[] = $course;
 									$winter_year = $course_year;
+									
 								} //winter
 								if ($course_semester =='SP') {
 									$spring_courses[] = $course;
 									$spring_year = $course_year;
 								} //spring
+								
 								}
 							}
 						}
 					}
+					
 							?>
 								<h2>Fall Semester <?php echo $fall_year; ?></h2>
 								<ul><li>
@@ -85,7 +90,11 @@ get_header(); // Loads the header.php template. ?>
 								// usort ($fall_courses, function($a, $b) {
 								// return strcmp($a->COURSETITLE, $b->COURSETITLE);
 								//}); ?>
-									<?php foreach ($fall_courses as $fall_course): ?>
+									<?php foreach ($fall_courses as $fall_course):
+										$fall_course_string = (string) $fall_course->COURSETITLE;
+										if (in_array($fall_course_string, $fall_course_titles) ): 
+											//do nothing
+											else: ?>
 										<li>	
 										<a href="#"><?php echo $fall_course->COURSENAME ?> - <strong><?php echo $fall_course->COURSETITLE ?></strong></a>
 										<div class="cdesc">
@@ -95,6 +104,8 @@ get_header(); // Loads the header.php template. ?>
 											<?php endif ?>
 											</p>
 											</div></li>
+											<?php endif ?>
+											<?php $fall_course_titles[] = (string) $fall_course->COURSETITLE;?>
 									<?php endforeach; ?></ul><br />
 							<h2>Winter Session <?php echo $winter_year; ?></h2>
 							<?php
@@ -103,7 +114,11 @@ get_header(); // Loads the header.php template. ?>
 							// 							});
 							?>
 							<ul>
-								<?php foreach ($winter_courses as $winter_course): ?>
+								<?php foreach ($winter_courses as $winter_course): 
+									$winter_course_string = (string) $winter_course->COURSETITLE;
+									if (in_array($winter_course_string, $winter_course_titles) ): 
+										//do nothing
+										else: ?>																		
 									<li>
 									<a href="#"><?php echo $winter_course->COURSENAME ?> - <strong><?php echo $winter_course->COURSETITLE ?></strong></a>
 									<div class="cdesc">
@@ -111,7 +126,12 @@ get_header(); // Loads the header.php template. ?>
 										<?php if ($winter_course->COURSECREDITS != ''): ?>
 											<br><strong>Credits: <?php echo $winter_course->COURSECREDITS ?></strong>
 										<?php endif ?></p></div></li>
-								<?php endforeach; ?></ul><br />
+											<?php endif ?>
+											<?php $winter_course_titles[] = (string) $winter_course->COURSETITLE;?>
+								<?php endforeach; 
+								?></ul>
+								<?php //print_r($winter_course_titles); ?>
+								<br />
 						<h2>Spring Semester <?php echo $spring_year; ?></h2>
 						<?php // usort ($spring_courses, function($a, $b) {
 						// 						    return strcmp($a->COURSETITLE, $b->COURSETITLE);
@@ -120,7 +140,11 @@ get_header(); // Loads the header.php template. ?>
 							<li>
 							<?php echo wpautop(get_post_meta($post->ID, "_dw_eng-101-spring", true)); ?>
 							</li>
-							<?php foreach ($spring_courses as $spring_course): ?>
+							<?php foreach ($spring_courses as $spring_course): 
+								$spring_course_string = (string) $spring_course->COURSETITLE;
+								if (in_array($spring_course_string, $spring_course_titles) ): 
+									//do nothing
+									else: ?>
 								<li>
 								<a href="#"><?php echo $spring_course->COURSENAME ?> - <strong><?php echo $spring_course->COURSETITLE ?></strong></a>
 								<div class="cdesc">
@@ -128,6 +152,8 @@ get_header(); // Loads the header.php template. ?>
 									<?php if ($spring_course->COURSECREDITS != ''): ?>
 										<br><strong>Credits: <?php echo $spring_course->COURSECREDITS ?></strong>
 									<?php endif ?></p></div></li>
+									<?php endif ?>
+									<?php $spring_course_titles[] = (string) $spring_course->COURSETITLE;?>
 							<?php endforeach; ?>
 							</ul>
 								
