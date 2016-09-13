@@ -166,7 +166,7 @@ get_header(); // Loads the header.php template. ?>
 					<br clear="both" />
 					<hr />
 						<h2>Part Time Faculty</h2>
-					<p>For an LAS faculty list that includes part time faculty members, please visit: <a href="http://www.risd.edu/Academics/English/Faculty/" title="Faculty | Literary Arts + Studies | Academic Departments | RISD">http://www.risd.edu/Academics/English/Faculty/</a></p>
+					<p>For an LAS faculty list that includes part time faculty members, please visit: <a href=" http://www.risd.edu/academics/las/faculty/" title="Faculty | Literary Arts + Studies | Academic Departments | RISD"> http://www.risd.edu/academics/las/faculty/</a></p>
 			</div><!-- .hfeed -->
 
 	
